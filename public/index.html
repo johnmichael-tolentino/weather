@@ -3,9 +3,17 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>Weather App</title>
 	</head>
 	<body>
+		<header><h1>Weather App</h1></header>
+		<form>
+			<input type="text" id="location" placeholder="Search for a city" />
+			<input type="submit" value="SUBMIT" />
+		</form>
+		<div id="weather-container">
+			<ul id="cities-list"></ul>
+		</div>
 		<script src="../src/index.js"></script>
 	</body>
 </html>
