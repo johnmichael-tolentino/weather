@@ -1,22 +1,27 @@
 import axios from 'axios';
 
 export const fetchWeather = async (city) => {
-	const KEY = '32CBtY5ZcJBGfWxjm6IJZbTgom382LhX';
+	const API_KEY = '32CBtY5ZcJBGfWxjm6IJZbTgom382LhX';
 
+	// Fetch location data.
 	const response = await axios.get('http://dataservice.accuweather.com/locations/v1/cities/search', {
 		params: {
-			apikey: KEY,
+			apikey: API_KEY,
 			q: city,
 		},
 	});
 
-	const { Key } = response.data[0];
+	const { LocalizedName: cityName, Key } = response.data[0];
 
-	const { data } = await axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${Key}`, {
+	// Fetch weather data.
+	const { data } = await axios.get(`http://dataservice.accuweather.com/currentconditions/v1/${Key}`, {
 		params: {
-			apikey: KEY,
+			apikey: API_KEY,
 		},
 	});
 
-	return data;
+	// Destructure necessary data.
+	const { Temperature: temp, WeatherIcon: icon, WeatherText: desc } = data[0];
+
+	return { cityName, temp, icon, desc };
 };
