@@ -6,14 +6,23 @@
 		<title>Weather App</title>
 	</head>
 	<body>
-		<header><h1>Weather App</h1></header>
-		<form>
-			<input type="text" id="location" placeholder="Search for a city" />
-			<input type="submit" value="SUBMIT" />
-		</form>
-		<div id="weather-container">
-			<ul id="cities-list"></ul>
-		</div>
+		<header>
+			<h1>Weather App</h1>
+			<form>
+				<input type="text" id="location" placeholder="Search for a city" autocomplete="off" />
+				<input type="submit" value="SUBMIT" />
+			</form>
+		</header>
+
+		<main id="weather-container">
+			<h1 id="city"></h1>
+			<img />
+			<section id="content">
+				<h1 id="temperature"></h1>
+				<h2 id="summary"></h2>
+			</section>
+		</main>
+
 		<script src="../src/index.js"></script>
 	</body>
 </html>
