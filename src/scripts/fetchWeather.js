@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const fetchWeather = async (city) => {
+	// Add validate function
 	const API_KEY = '32CBtY5ZcJBGfWxjm6IJZbTgom382LhX';
 
 	// Fetch location data.
