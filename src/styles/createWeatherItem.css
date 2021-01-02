@@ -1,0 +1,12 @@
+.weather-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-width: 200px;
+	padding: 2rem 1rem;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 1rem 1rem;
+	background-color: #eee;
+	color: #00487c;
+}

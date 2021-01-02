@@ -1,3 +1,5 @@
+import '../styles/createWeatherItem.css';
+
 export const createWeatherItem = ({ cityName, temp, icon, desc }) => {
 	const createElements = () => {
 		return ['div', 'h2', 'img', 'section', 'h1', 'h3'].map((elem) => {
@@ -10,6 +12,7 @@ export const createWeatherItem = ({ cityName, temp, icon, desc }) => {
 
 		// Add attributes.
 		div.id = cityName;
+		div.className = 'weather-item';
 		h2.className = 'city-name';
 		img.className = 'icon';
 		section.className = 'content';

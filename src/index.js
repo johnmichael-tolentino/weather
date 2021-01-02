@@ -1,3 +1,4 @@
+import './styles/index.css'
 import { fetchWeather } from '../src/scripts/fetchWeather';
 import { createWeatherItem } from '../src/scripts/createWeatherItem';
 import { displayWeather } from '../src/scripts/displayWeather';

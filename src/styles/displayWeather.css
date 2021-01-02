@@ -1,0 +1,8 @@
+#weather-display {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	row-gap: 2.5rem;
+	margin-bottom: 5rem;
+	justify-items: center;
+	text-align: center;
+}
