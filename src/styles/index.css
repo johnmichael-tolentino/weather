@@ -30,9 +30,13 @@ form {
 }
 
 /* Utilities */
-input {
+input,
+button {
 	border: none;
 	border-radius: 5px;
+}
+
+input {
 	padding: 1rem 2rem;
 	font-size: 1.5rem;
 }
@@ -42,15 +46,26 @@ input[type='text'] {
 	text-align: center;
 }
 
-input[type='submit'] {
-	margin-left: 1rem;
+input[type='submit'],
+button {
 	border: none;
 	background-color: #00487c;
 	color: #eee;
 	font-weight: bold;
 }
 
-input[type='submit']:hover {
+input[type='submit'] {
+	margin-left: 1rem;
+}
+
+input[type='submit']:hover,
+button:hover {
 	opacity: 95%;
 	cursor: pointer;
+}
+
+.delete {
+	align-self: flex-end;
+	margin-right: 1.5rem;
+	padding: 0.25rem 0.75rem;
 }
