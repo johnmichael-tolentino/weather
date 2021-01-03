@@ -1,6 +1,9 @@
 import axios from 'axios';
+import { displayError } from './displayError';
 
 export const fetchWeather = async (city) => {
+	if (document.querySelector(`#${city}`)) return displayError('duplicate');
+
 	// Add validate function
 	const API_KEY = '32CBtY5ZcJBGfWxjm6IJZbTgom382LhX';
 
@@ -11,6 +14,8 @@ export const fetchWeather = async (city) => {
 			q: city,
 		},
 	});
+
+	if (!response.data.length) return displayError('invalid');
 
 	const { LocalizedName: cityName, Key } = response.data[0];
 
