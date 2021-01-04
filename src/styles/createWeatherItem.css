@@ -10,3 +10,11 @@
 	background-color: #eee;
 	color: #00487c;
 }
+
+@media (max-width: 830px) and (min-width: 400px) {
+	.weather-item {
+		min-width: 150px;
+		font-size: 1.5rem;
+		box-shadow: 1rem 1rem;
+	}
+}
