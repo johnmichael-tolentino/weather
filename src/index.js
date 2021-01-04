@@ -2,16 +2,31 @@ import './styles/index.css';
 import { fetchWeather } from '../src/scripts/fetchWeather';
 import { createWeatherItem } from '../src/scripts/createWeatherItem';
 import { displayWeather } from '../src/scripts/displayWeather';
+import Storage from './scripts/storage';
 
-const form = document.querySelector('form');
-const location = document.querySelector('#location');
+(() => {
+	// Callback method to prompt weather query and render.
+	const weather = async (location) => {
+		const results = await fetchWeather(location);
+		if (!results) return;
+		const weatherItem = createWeatherItem(results, storage);
+		displayWeather(weatherItem);
+	};
 
-const weather = async (e) => {
-	e.preventDefault();
-	const results = await fetchWeather(location.value);
-	if(!results) return;
-	const weatherItem = createWeatherItem(results);
-	displayWeather(weatherItem);
-};
+	// UI Selectors
+	const form = document.querySelector('form');
+	const location = document.querySelector('#location');
 
-form.addEventListener('submit', weather);
+	// Event Listener for weather input
+	form.addEventListener('submit', (e) => {
+		e.preventDefault();
+		weather(location.value);
+	});
+
+	const storage = new Storage();
+	// Validates cities in local storage and renders.
+	if (storage.getLocationData() && storage.getLocationData()[0] !== null) {
+		const cityList = storage.getLocationData();
+		cityList.forEach((city) => weather(city));
+	} else storage.setLocationData();
+})();
