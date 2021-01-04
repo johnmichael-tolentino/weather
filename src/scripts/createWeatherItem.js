@@ -1,6 +1,9 @@
 import '../styles/createWeatherItem.css';
 
-export const createWeatherItem = ({ cityName, temp, icon, desc }) => {
+export const createWeatherItem = ({ cityName, temp, icon, desc }, storage) => {
+	storage.setLocationData(cityName);
+
+	// Weather item template.
 	const createElements = () => {
 		return ['div', 'button', 'h2', 'img', 'section', 'h1', 'h3'].map((elem) => {
 			return document.createElement(elem);
@@ -22,6 +25,7 @@ export const createWeatherItem = ({ cityName, temp, icon, desc }) => {
 
 		// Event listener to delete weather item.
 		button.addEventListener('click', () => {
+			storage.removeLocationData(cityName);
 			document.querySelector('#weather-display').removeChild(document.querySelector(`#${cityName}`));
 		});
 
