@@ -9,6 +9,7 @@ html {
 
 body {
 	min-height: 100vh;
+	min-width: 320px;
 	background: rgb(255, 255, 255);
 	background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(2, 123, 206, 1) 100%);
 	background-size: cover;
