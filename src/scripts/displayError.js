@@ -13,6 +13,6 @@ export const displayError = (type) => {
 	if (!document.querySelector('#error')) document.querySelector('header').appendChild(error);
 
 	setTimeout(() => {
-		document.querySelector('header').removeChild(error);
+		if (document.querySelector('#error')) document.querySelector('header').removeChild(error);
 	}, 2500);
 };

@@ -3,6 +3,7 @@ import { fetchWeather } from '../src/scripts/fetchWeather';
 import { createWeatherItem } from '../src/scripts/createWeatherItem';
 import { displayWeather } from '../src/scripts/displayWeather';
 import Storage from './scripts/storage';
+import { displayError } from './scripts/displayError';
 
 (() => {
 	// Callback method to prompt weather query and render.
@@ -20,7 +21,8 @@ import Storage from './scripts/storage';
 	// Event Listener for weather input
 	form.addEventListener('submit', (e) => {
 		e.preventDefault();
-		weather(location.value);
+		if (!location.value) return displayError('invalid');
+		else weather(location.value);
 	});
 
 	const storage = new Storage();
