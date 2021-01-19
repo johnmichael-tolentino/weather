@@ -14,7 +14,7 @@ export const createWeatherItem = ({ cityName, temp, icon, desc }, storage) => {
 		const [div, button, h2, img, section, h1, h3] = createElements();
 
 		// Add attributes.
-		div.id = cityName.replace(/\s/g, '');
+		div.id = cityName.replace(/\s/g, '').toLowerCase();
 		div.className = 'weather-item';
 		button.className = 'delete';
 		h2.className = 'city-name';
@@ -26,7 +26,7 @@ export const createWeatherItem = ({ cityName, temp, icon, desc }, storage) => {
 		// Event listener to delete weather item.
 		button.addEventListener('click', () => {
 			storage.removeLocationData(cityName);
-			document.querySelector('#weather-display').removeChild(document.querySelector(`#${cityName.replace(/\s/g, '')}`));
+			document.querySelector('#weather-display').removeChild(document.querySelector(`#${cityName.replace(/\s/g, '').toLowerCase()}`));
 		});
 
 		// Insert content.

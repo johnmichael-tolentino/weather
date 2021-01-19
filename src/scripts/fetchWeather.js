@@ -2,7 +2,7 @@ import axios from 'axios';
 import { displayError } from './displayError';
 
 export const fetchWeather = async (city) => {
-	if (document.querySelector(`#${city.replace(/\s/g, '')}`)) return displayError('duplicate');
+	if (document.querySelector(`#${city.replace(/\s/g, '').toLowerCase()}`)) return displayError('duplicate');
 
 	// Add validate function
 	const API_KEY = '32CBtY5ZcJBGfWxjm6IJZbTgom382LhX';
