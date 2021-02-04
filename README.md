@@ -5,7 +5,7 @@
     <img src="https://jolentino.netlify.app/imgs/weather.gif" alt="Logo" width="400">
   </a>
 
-  <a href="https://tolentino-weather.netlify.app/"><h1 align="center">Weather App</h3></a>
+  <a href="https://tolentino-weather.netlify.app/"><h1 align="center">Weather App</h1></a>
 
 <!-- ABOUT THE PROJECT -->
 ## Description
