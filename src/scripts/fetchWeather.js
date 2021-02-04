@@ -2,9 +2,9 @@ import axios from 'axios';
 import { displayError } from './displayError';
 
 export const fetchWeather = async (city) => {
+	// Validator to check if the city already exists.
 	if (document.querySelector(`#${city.replace(/\s/g, '').toLowerCase()}`)) return displayError('duplicate');
 
-	// Add validate function
 	const API_KEY = '32CBtY5ZcJBGfWxjm6IJZbTgom382LhX';
 
 	// Fetch location data.
@@ -15,6 +15,7 @@ export const fetchWeather = async (city) => {
 		},
 	});
 
+	// Validator to check if the city is valid.
 	if (!response.data.length) return displayError('invalid');
 
 	const { LocalizedName: cityName, Key } = response.data[0];

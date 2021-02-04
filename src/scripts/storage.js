@@ -1,4 +1,4 @@
-// Array of city data persisted to local storage.
+// A class that accesses local store and stores an array of city data.
 export default class Storage {
 	constructor() {
 		this.cities = [];

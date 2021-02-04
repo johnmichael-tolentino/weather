@@ -1,5 +1,6 @@
 import '../styles/createWeatherItem.css';
 
+// Helper function that processes fetched information and creates a weather item.
 export const createWeatherItem = ({ cityName, temp, icon, desc }, storage) => {
 	storage.setLocationData(cityName);
 

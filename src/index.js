@@ -9,6 +9,7 @@ import { displayError } from './scripts/displayError';
 	// Callback method to prompt weather query and render.
 	const weather = async (location) => {
 		const results = await fetchWeather(location);
+		// Validator to prevent UI creator if there was an error.
 		if (!results) return;
 		const weatherItem = createWeatherItem(results, storage);
 		displayWeather(weatherItem);
@@ -18,14 +19,17 @@ import { displayError } from './scripts/displayError';
 	const form = document.querySelector('form');
 	const location = document.querySelector('#location');
 
-	// Event Listener for weather input
+	// Event Listener for weather input to fetch and display weather.
 	form.addEventListener('submit', (e) => {
 		e.preventDefault();
+		// Validates against empty strings from being queried.
 		if (!location.value) return displayError('invalid');
 		else weather(location.value);
 	});
 
+	
 	const storage = new Storage();
+
 	// Validates cities in local storage and renders.
 	if (storage.getLocationData() && storage.getLocationData()[0] !== null) {
 		const cityList = storage.getLocationData();
