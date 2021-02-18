@@ -31,11 +31,11 @@ export const createWeatherItem = ({ cityName, temp, icon, desc }, storage) => {
 		});
 
 		// Insert content.
-		button.innerHTML = 'x';
-		h2.innerHTML = cityName;
+		button.innerText = 'x';
+		h2.innerText = cityName;
 		img.src = `https://developer.accuweather.com/sites/default/files/${icon < 10 ? '0' + icon : icon}-s.png`;
-		h1.innerHTML = `${temp.Imperial.Value}°F`;
-		h3.innerHTML = desc;
+		h1.innerText = `${temp.Imperial.Value}°F`;
+		h3.innerText = desc;
 
 		// Build weather item.
 		div.appendChild(button);
